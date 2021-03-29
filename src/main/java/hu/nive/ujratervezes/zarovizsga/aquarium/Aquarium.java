@@ -12,9 +12,10 @@ public class Aquarium {
     }
 
     public void feed() {
-        for (Fish fish : fishes) {
-            fish.feed();
-        }
+        fishes.forEach(f -> f.feed());
+//        for (Fish fish : fishes) {
+//            fish.feed();
+//        }
     }
 
     public void removeFish() {
