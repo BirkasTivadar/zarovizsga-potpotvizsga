@@ -18,7 +18,7 @@ class UniqueFinderTest {
         uniqueFinder = new UniqueFinder();
         expected = new ArrayList<>();
     }
-/*
+
     @Test
     void test_uniqueChars_null_illegalArgumentException() {
         assertThrows(IllegalArgumentException.class, () -> uniqueFinder.uniqueChars(null));
@@ -125,7 +125,5 @@ class UniqueFinderTest {
         expected.add('0');
         assertEquals(expected, uniqueFinder.uniqueChars("<3 java && my team @ pm @ 3:00"));
     }
-
- */
 
 }
