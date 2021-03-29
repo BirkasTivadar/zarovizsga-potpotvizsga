@@ -1,27 +1,26 @@
 package hu.nive.ujratervezes.zarovizsga.housecup;
 
+import com.mysql.cj.jdbc.MysqlDataSource;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class HouseCupTest {
-/*
-    private MariaDbDataSource dataSource;
+
+    private MysqlDataSource dataSource;
 
     private HouseCup houseCup;
 
     @BeforeEach
     void init() throws SQLException {
-        dataSource = new MariaDbDataSource();
-        dataSource.setUrl("jdbc:mariadb://localhost:3306/employees?useUnicode=true");
+        dataSource = new MysqlDataSource();
+        dataSource.setUrl("jdbc:mysql://localhost:3306/employees?useUnicode=true");
         dataSource.setUser("employees");
         dataSource.setPassword("employees");
 
@@ -29,6 +28,15 @@ class HouseCupTest {
 
         initTables();
         createDummyData();
+    }
+
+    @AfterEach
+    void destruct() throws SQLException {
+        try (Connection connection = dataSource.getConnection()) {
+            String dropHousePoints = "DROP TABLE IF EXISTS house_points";
+            Statement statement = connection.createStatement();
+            statement.execute(dropHousePoints);
+        }
     }
 
     @Test
@@ -39,17 +47,6 @@ class HouseCupTest {
     @Test
     void test_get_points_of_house_one() throws SQLException {
         assertEquals(5, houseCup.getPointsOfHouse("Slytherin"));
-    }
-
-
-
-    @AfterEach
-    void destruct() throws SQLException {
-        try (Connection connection = dataSource.getConnection()) {
-            String dropHousePoints = "DROP TABLE IF EXISTS house_points";
-            Statement statement = connection.createStatement();
-            statement.execute(dropHousePoints);
-        }
     }
 
     void initTables() throws SQLException {
@@ -82,9 +79,6 @@ class HouseCupTest {
             insertHousePointsStatement = connection.createStatement();
             insertHousePointsStatement.execute(insertHousePoints);
         }
-
     }
 
-
- */
 }
