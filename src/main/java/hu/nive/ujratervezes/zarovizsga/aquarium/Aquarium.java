@@ -27,7 +27,6 @@ public class Aquarium {
         fishes.removeAll(temp);
     }
 
-
     public List<String> getStatus() {
         List<String> result = new ArrayList<>();
         for (Fish fish : fishes) {
