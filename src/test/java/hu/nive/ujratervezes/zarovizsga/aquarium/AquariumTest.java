@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AquariumTest {
-/*
+
     private Aquarium aquarium;
 
     @BeforeEach
@@ -132,9 +132,4 @@ class AquariumTest {
         aquarium.removeFish();
         assertEquals(3, aquarium.getStatus().size());
     }
-
-
- */
-
-
 }
