@@ -2,6 +2,7 @@ package hu.nive.ujratervezes.zarovizsga.aquarium;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Aquarium {
 
@@ -19,20 +20,23 @@ public class Aquarium {
     }
 
     public void removeFish() {
-        List<Fish> temp = new ArrayList<>();
-        for (Fish fish : fishes) {
-            if (fish.getWeight() >= 11) {
-                temp.add(fish);
-            }
-        }
-        fishes.removeAll(temp);
+        this.fishes = fishes.stream().filter(f -> f.getWeight() < 11).collect(Collectors.toList());
+
+//        List<Fish> temp = new ArrayList<>();
+//        for (Fish fish : fishes) {
+//            if (fish.getWeight() >= 11) {
+//                temp.add(fish);
+//            }
+//        }
+//        fishes.removeAll(temp);
     }
 
     public List<String> getStatus() {
-        List<String> result = new ArrayList<>();
-        for (Fish fish : fishes) {
-            result.add(fish.status());
-        }
-        return result;
+        return fishes.stream().map(f -> f.status()).collect(Collectors.toList());
+//        List<String> result = new ArrayList<>();
+//        for (Fish fish : fishes) {
+//            result.add(fish.status());
+//        }
+//        return result;
     }
 }
